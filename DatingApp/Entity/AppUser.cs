@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿    using System.ComponentModel.DataAnnotations;
 
-namespace DatingApp.Entities;
+    namespace DatingApp.Entities;
 
-public class AppUser
-{
-   
-    public string  UserName { get; set; }
+    public class AppUser
+    {
     
-    [Key]
-    public int Id { get; set; }
+        public string  UserName { get; set; }
+        
+        [Key]
+        public int Id { get; set; }
 
-}
+    }
