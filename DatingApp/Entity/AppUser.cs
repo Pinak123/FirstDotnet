@@ -10,4 +10,6 @@
         [Key]
         public int Id { get; set; }
 
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordHashSalt { get; set; }
     }

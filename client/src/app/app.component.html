@@ -1,7 +1,11 @@
 @if(server)
 {
   <p>Hello</p>
-    
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.id}} :- {{user.userName}}
+    </li>
+  </ul>
 }
 @else {
     <p>Server is not running</p>

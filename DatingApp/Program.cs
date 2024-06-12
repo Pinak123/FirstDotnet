@@ -23,7 +23,7 @@ app.UseCors(options =>
     options.AllowAnyHeader();
     options.AllowAnyMethod();
     options.AllowCredentials();
-    options.WithOrigins("http://localhost:4200");
+    options.WithOrigins("https://localhost:4200");
 }); // Use the named CORS policy
 app.UseAuthorization();
 

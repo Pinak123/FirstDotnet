@@ -6,18 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.Controller;
 
-[ApiController]
-[Route("api/[controller]")]
-public class UsersController : ControllerBase
+public class UsersController : BaseApiController
 {
-    [HttpOptions]
-    public IActionResult Options()
-    {
-        Response.Headers.Append("Access-Control-Allow-Origin", "http://localhost:4200");
-        Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        Response.Headers.Append("Access-Control-Allow-Headers", "Content-Type");
-        return Ok();
-    }
+    
     private readonly DataContext _dataContext;
 
     public UsersController(DataContext dataContext)
