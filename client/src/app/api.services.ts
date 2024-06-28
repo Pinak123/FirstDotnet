@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(): Observable<any> {
+  getuser(): Observable<any> {
     return this.http.get(this.apiUrl, { withCredentials: true });
   }
 }
