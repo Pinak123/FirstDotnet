@@ -34,4 +34,8 @@ export class HomeComponent implements OnInit {
   registerToggle(){
     this.regiaterMode = !this.regiaterMode;
   }
+
+  cancelRegister(event : boolean){ 
+    this.regiaterMode = event;
+   } 
 }

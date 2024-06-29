@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal } from '@angular/core';
+import { Injectable, model, signal } from '@angular/core';
 import { User } from '../_models/user';
 import { map } from 'rxjs';
 
@@ -29,5 +29,18 @@ export class AccountService {
   logout(){
     localStorage.removeItem("user");
     this.currentUser.set(null);
+  }
+
+  Register(model:any){
+    return this.http.post<User>(this.baseUrl+ "accounts/register" , model).pipe(
+      map(user => {
+        if (user)
+          {
+            localStorage.setItem("user", JSON.stringify(user));
+            this.currentUser.set(user);
+          }
+          return user;  
+      })
+    );
   }
 }
