@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'; // Import BsDropdownModule
 import { AccountService } from './_services/account.service';
+import { HomeComponent } from "./home/home.component";
 
 
 @Component({
@@ -14,7 +15,7 @@ import { AccountService } from './_services/account.service';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [HttpClientModule, CommonModule, FormsModule, NavbarComponent]
+    imports: [HttpClientModule, CommonModule, FormsModule, NavbarComponent, HomeComponent]
 })
 export class AppComponent implements OnInit {
   title = 'Dating app';
@@ -24,7 +25,6 @@ export class AppComponent implements OnInit {
   constructor(private apiService: ApiService , public accountService : AccountService) { }
 
   ngOnInit(): void {
-    this.getUsers();
     this.setUsers();
   }
 
@@ -35,11 +35,5 @@ export class AppComponent implements OnInit {
     this.accountService.currentUser.set(user);
   }
 
-  getUsers(): void {
-     this.apiService.getuser().subscribe({
-      next: res => this.users = res,
-      error: error => console.log(error),
-      complete: () => console.log("Request completed")
-    });
-  }
+
 }

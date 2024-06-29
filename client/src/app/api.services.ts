@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class ApiService {
   //Your api url and it should be https
   private apiUrl = 'https://localhost:5000/api/users';
-//   private apiUrl = 'https://v2.jokeapi.dev/joke/Any';
 
   constructor(private http: HttpClient) { }
 
