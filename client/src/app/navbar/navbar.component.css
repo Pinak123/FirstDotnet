@@ -1,3 +1,6 @@
 .dropdown-toggle , .dropdown-item ,.nav-link {
         cursor: pointer;
 }
+.plogin:hover{
+        opacity: 0.65;
+}

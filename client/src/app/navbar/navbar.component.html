@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Eleventh navbar example">
+<nav class="navbar navbar-expand-lg bg-primary  " aria-label="Eleventh navbar example">
       <div class="container">
         <a class="navbar-brand" routerLink="/">Dating App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
           <div class="dropdown" dropdown *ngIf="accountService.currentUser()">
             <button class="btn btn-secondary dropdown-toggle text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" dropdownToggle>
-              Welcome User
+              Welcome {{this.model.username | titlecase}}
             </button>
             
             <div class="dropdown-menu" *dropdownMenu aria-labelledby="dropdownMenuButton">
@@ -39,7 +39,7 @@
           <form #loginForm="ngForm" *ngIf="!accountService.currentUser()" class="d-flex" (ngSubmit)="login()" autocomplete="off">
             <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text" placeholder="Username" >
             <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="password" placeholder="Password">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary plogin">Login</button>
           </form>
         
       </div>
