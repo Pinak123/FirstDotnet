@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
 import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   model:any ={};
-  constructor( public accountService:AccountService)
+  constructor( public accountService:AccountService , public router:Router , private toastr:ToastrService)
   {
     
   }
@@ -24,14 +25,16 @@ export class NavbarComponent {
 
   login():any{
     this.accountService.login(this.model).subscribe({
-      next: response => {
+      next: _ => {
+        this.router.navigateByUrl('/members')
       },
-      error: err=> console.log(err)
+      error: err=> this.toastr.error("invalid password")
     })
   }
 
 
   loggot():any{
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }

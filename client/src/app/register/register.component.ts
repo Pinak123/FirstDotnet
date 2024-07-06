@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output, inject, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,9 @@ import { AccountService } from '../_services/account.service';
 })
 export class RegisterComponent {
   model:any = {};
-  private accountService = inject(AccountService)
+  private accountService = inject(AccountService);
+  private router = inject(Router);
+  private toaster = inject(ToastrService);
   // @Input() usersFromHome:any ;
   // @Output() cancelRegister = new EventEmitter(); // old way
   cancelRegister = output<boolean>()// new way
@@ -22,8 +26,9 @@ export class RegisterComponent {
     this.accountService.Register(this.model).subscribe({
       next: res =>{
         this.cancel();
+        this.router.navigateByUrl('/members')
       },
-      error: err => console.log(err)
+      error: err => this.toaster.error(err)
     })
   }
   cancel(){
