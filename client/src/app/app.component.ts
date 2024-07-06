@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'; // Import BsDropdownModule
 import { AccountService } from './_services/account.service';
 import { HomeComponent } from "./home/home.component";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { HomeComponent } from "./home/home.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [HttpClientModule, CommonModule, FormsModule, NavbarComponent, HomeComponent]
+    imports: [HttpClientModule, CommonModule, FormsModule, NavbarComponent, HomeComponent , RouterModule]
 })
 export class AppComponent implements OnInit {
   title = 'Dating app';

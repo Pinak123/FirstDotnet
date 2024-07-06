@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    console.log(this.users);
   }
   regiaterMode = false;
 
