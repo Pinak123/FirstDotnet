@@ -15,10 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavbarComponent {
   model:any ={};
-  user:any = {};
   constructor( public accountService:AccountService , public router:Router , private toastr:ToastrService)
   {
-    this.user = accountService.currentUser();
+
   }
   ngOnInit():any{
 

@@ -1,5 +1,6 @@
 using System.Text;
 using DatingApp.Data;
+using DatingApp.erros;
 using DatingApp.Extensions;
 using DatingApp.Interfaces;
 using DatingApp.Services;
@@ -18,7 +19,7 @@ builder.Services.AddIdentityServices(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseMiddleware<ApiExceptions>();
 app.UseRouting();
 
 app.UseCors(options =>
