@@ -10,9 +10,10 @@ export class AccountService {
 
     baseUrl = 'https://localhost:5000/api/';
     currentUser = signal<User | null>(null);
-
   constructor(private http:HttpClient) { 
-
+      if ( localStorage.getItem('user')) {
+        
+      }
   }
 
   login(model:any){

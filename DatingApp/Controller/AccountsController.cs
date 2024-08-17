@@ -27,23 +27,23 @@ public class AccountsController:BaseApiController
         {
             return BadRequest("Username is taken");
         };
+        return Ok();
+        // using var hmac = new HMACSHA512();
 
-        using var hmac = new HMACSHA512();
+        // var user = new AppUser
+        // {
+        //     UserName = registerDTO.username.ToLower(),
+        //     PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.password)),
+        //     PasswordHashSalt = hmac.Key
 
-        var user = new AppUser
-        {
-            UserName = registerDTO.username.ToLower(),
-            PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.password)),
-            PasswordHashSalt = hmac.Key
-
-        };
-        _context.User.Add(user);
-        await _context.SaveChangesAsync();
-        return new UserDto
-        {
-            UserName = user.UserName,
-            Token = _tokenService.CreateToken(user)
-        };
+        // };
+        // _context.User.Add(user);
+        // await _context.SaveChangesAsync();
+        // return new UserDto
+        // {
+        //     UserName = user.UserName,
+        //     Token = _tokenService.CreateToken(user)
+        // };
     }
 
     [HttpPost("Login")]// api/Account/login
